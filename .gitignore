@@ -5,6 +5,9 @@ resume.pdf
 ./resume.json
 index.html
 
+node_modules
+node_modules.nosync
+
 
 # Created by https://www.toptal.com/developers/gitignore/api/macos,linux,vim,webstorm,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,linux,vim,webstorm,node
