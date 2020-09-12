@@ -1,0 +1,44 @@
+{{#if info}}
+    {{#each info}}
+        <div class="bloc_info">
+            {{#if position}}
+                <h3>{{position}}</h3>
+            {{/if}}
+            {{#if company}}
+                {{#if website}}
+                    <h4>
+                        <a href="{{website}}">
+                            {{company}}<i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </h4>
+                {{else}}
+                    {{company}}
+                {{/if}}
+            {{/if}}
+            <div class="details">
+                {{#if date}}
+                    <span class="date">
+                        {{date}}
+                    </span>
+                {{/if}}
+                {{#if location}}
+                    <a href="https://www.google.com/maps/search/{{location.city}},+{{location.country}}">
+                        {{location.city}}, {{location.country}}
+                    </a>
+                {{/if}}
+            </div>
+            {{#if summary}}
+                <div class="summary">
+                    <p>{{summary}}</p>
+                </div>
+            {{/if}}
+            {{#if highlights.length}}
+                <ul class="highlights">
+                    {{#each highlights}}
+                        <li>{{.}}</li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+        </div>
+    {{/each}}
+{{/if}}

@@ -1,0 +1,9 @@
+{{#if resume.blocs.length}}
+	{{#each resume.blocs}}
+		<div class="bloc">
+			<h2>{{title}}</h2>
+            {{> bloc_info}}
+            {{> bloc_tags}}
+		</div>
+	{{/each}}
+{{/if}}

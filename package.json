@@ -1,0 +1,26 @@
+{
+  "name": "resume-marc-villain",
+  "version": "1.0.0",
+  "description": "Personnal resume template",
+  "author": "Marc Villain",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcVillain/resume.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MarcVillain/resume/issues"
+  },
+  "homepage": "https://github.com/MarcVillain/resume#readme",
+  "license": "MIT",
+  "main": "./src/index.js",
+  "bin": {
+    "resume": "./src/index.js"
+  },
+  "dependencies": {
+    "btoa": "^1.2.1",
+    "handlebars": "^2.0.0-alpha.4",
+    "opn": "^6.0.0",
+    "puppeteer": "^5.3.0",
+    "yargs": "^13.2.4"
+  }
+}

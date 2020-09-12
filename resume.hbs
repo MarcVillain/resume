@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
+
+        <title>{{#resume.basics}}{{name}}{{/resume.basics}}</title>
+
+        <style>
+            {{{css}}}
+        </style>
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="resume">
+            {{> basics }}
+            <div id="resume-columns">
+                {{> blocs }}
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+    </body>
+</html>

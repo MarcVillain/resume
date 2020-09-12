@@ -1,0 +1,70 @@
+{
+  "basics": {
+    "name": "John Doe",
+    "label": "Software Engineer",
+    "picture": "",
+    "email": "john.doe@website.com",
+    "phone": "(+33)000000000",
+    "website": "website.com/johndoe",
+    "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae purus purus. Quisque tristique metus eget fringilla consequat. Duis dapibus rhoncus est, id commodo ipsum suscipit ac.",
+    "apply": {
+      "position": "Software Engineer, Security",
+      "link": "https://website.com/jobs/1234"
+    },
+    "location": {
+      "city": "Paris",
+      "country": "France"
+    },
+    "profiles": [
+      {
+        "network": "WebSite",
+        "username": "john_doe",
+        "url": "website.com/users/john_doe"
+      }
+    ]
+  },
+  "blocs": [
+    {
+      "title": "Work Experience",
+      "info": [
+        {
+          "company": "Awesome Company",
+          "position": "CEO/President",
+          "website": "https://website.com",
+          "date": "May 2019 - June 2020",
+          "location": {
+            "city": "Paris",
+            "country": "France"
+          },
+          "summary": "Vestibulum a nunc in urna dignissim luctus at ut nibh. Nulla dignissim quam vel varius malesuada. Curabitur molestie turpis ac erat bibendum, eget feugiat libero aliquet.",
+          "highlights": [
+              "Maecenas mi purus, tincidunt quis auctor sit amet, venenatis ac neque.",
+              "Etiam vel lectus ut ex dapibus finibus. Integer aliquet enim eu libero luctus interdum.",
+              "Donec dictum eu lectus eu efficitur."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Education",
+      "info": [
+        {
+          "company": "Awesome School",
+          "position": "CEO/President",
+          "website": "https://website.com",
+          "date": "May 2019 - June 2020",
+          "location": {
+            "city": "Paris",
+            "country": "France"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Skills",
+      "tags": [
+        "Something"
+      ]
+    }
+  ]
+}

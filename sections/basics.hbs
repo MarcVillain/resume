@@ -1,0 +1,60 @@
+{{#resume.basics}}
+	<section id="basics">
+		<div class="header">
+			<div class="header-left">
+				<h1>{{name}}</h1>
+				<h2>{{label}}</h2>
+				{{#if apply}}
+					<span>Applying for <a href="{{apply.url}}">{{apply.position}}</a></span>
+				{{/if}}
+				{{#if summary}}
+					<p>{{summary}}</p>
+				{{/if}}
+			</div>
+			{{#if picture}}
+				<div class="header-right">
+					<img src="{{picture}}">
+				</div>
+			{{/if}}
+		</div>
+		<div class="contact">
+			{{#if website}}
+				<div class="contact-item">
+					<a href="https://{{website}}">
+						<i class="fas fa-at"></i>{{website}}
+					</a>
+				</div>
+			{{/if}}
+			{{#if email}}
+				<div class="contact-item">
+					<a href="mailto:{{email}}">
+						<i class="fas fa-envelope"></i>{{email}}
+					</a>
+				</div>
+			{{/if}}
+			{{#if phone}}
+				<div class="contact-item">
+					<a href="tel:{{phone}}">
+						<i class="fas fa-mobile-alt"></i>{{phone}}
+					</a>
+				</div>
+			{{/if}}
+			{{#if location}}
+				<div class="contact-item">
+					<a href="https://www.google.com/maps/search/{{location.city}},+{{location.country}}">
+						<i class="fas fa-map-marker-alt"></i>{{location.city}}, {{location.country}}
+					</a>
+				</div>
+			{{/if}}
+			{{#if profiles.length}}
+				{{#each profiles}}
+					<div class="contact-item">
+						<a href="{{url}}">
+							<i class="fab fa-{{network}}"></i>{{username}}
+						</a>
+					</div>
+				{{/each}}
+			{{/if}}
+		</div>
+	</section>
+{{/resume.basics}}
