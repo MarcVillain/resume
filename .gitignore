@@ -2,7 +2,7 @@
 .idea/
 resume.html
 resume.pdf
-./resume.json
+resume.json
 index.html
 
 node_modules
