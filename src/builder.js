@@ -54,7 +54,7 @@ const build_pdf = (filePath, html) => {
         });
         const page = await browser.newPage();
 
-        await page.emulateMediaType("screen");
+        await page.emulateMediaType("print");
         await page.goto(
             `data:text/html;base64,${btoa(unescape(encodeURIComponent(html)))}`,
             { waitUntil: "networkidle0" },

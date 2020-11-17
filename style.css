@@ -278,6 +278,15 @@ h1, h2, h3, h4, p, li, span, a {
 	    max-height: none;
 	}
 
+	#resume-columns {
+		-webkit-columns: 1;
+		   -moz-columns: 1;
+		        columns: 1;
+		-webkit-column-gap: 0;
+		   -moz-column-gap: 0;
+		        column-gap: 0;
+	}
+
 	#basics .header {
 		flex-direction: column-reverse;
 		text-align: center;
@@ -302,5 +311,16 @@ h1, h2, h3, h4, p, li, span, a {
 
 	.bloc {
 		padding: 0;
+	}
+}
+
+/*
+ * Handle Print
+ */
+@media print {
+	body {
+		width: 21cm;
+		height: 29.7cm;
+		margin: 0;
 	}
 }
