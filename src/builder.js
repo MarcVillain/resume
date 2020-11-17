@@ -90,7 +90,7 @@ function build(filePath, callbackError, callbackSuccess) {
     });
 
     const file = basename.split(".")
-    const type = file[1]
+    const type = file[file.length - 1]
 
     switch (type) {
         case "html":
