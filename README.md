@@ -37,6 +37,20 @@ sudo npm install -g .
 resume --help
 ```
 
+## How to use
+
+### Live reload
+
+```bash
+node . serve
+```
+
+### Build
+
+```bash
+node . build resume.pdf
+```
+
 ## License
 
 Available under [the MIT license](http://mths.be/mit).
