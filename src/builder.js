@@ -10,6 +10,13 @@ function render(resume) {
     const partialsDir = path.join(__dirname, "/../sections");
     const filenames = fs.readdirSync(partialsDir);
 
+    Handlebars.registerHelper('ifOr', function(v1, v2, options) {
+        if(v1 || v2) {
+            return options.fn(this);
+        }
+        return options.inverse(this);
+    });
+
     filenames.forEach(function (filename) {
         const matches = /^([^.]+).hbs$/.exec(filename);
         if (!matches) {
@@ -21,6 +28,7 @@ function render(resume) {
 
         Handlebars.registerPartial(name, template);
     });
+
     return Handlebars.compile(tpl)({
         css: css,
         resume: resume

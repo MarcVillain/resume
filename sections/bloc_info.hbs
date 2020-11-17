@@ -15,27 +15,36 @@
                     {{company}}
                 {{/if}}
             {{/if}}
-            <div class="details">
-                {{#if date}}
-                    <span class="date">
-                        {{date}}
-                    </span>
-                {{/if}}
-                {{#if location}}
-                    <a href="https://www.google.com/maps/search/{{location.city}},+{{location.country}}">
-                        {{location.city}}, {{location.country}}
-                    </a>
-                {{/if}}
-            </div>
+            {{#ifOr date location}}
+                <div class="details">
+                    {{#if date}}
+                        <span class="date">
+                            {{date}}
+                        </span>
+                    {{/if}}
+                    {{#if location}}
+                        <a href="https://www.google.com/maps/search/{{location.city}},+{{location.country}}">
+                            {{location.city}}, {{location.country}}
+                        </a>
+                    {{/if}}
+                </div>
+            {{/ifOr}}
             {{#if summary}}
                 <div class="summary">
-                    <p>{{summary}}</p>
+                    <p>{{{summary}}}</p>
                 </div>
+            {{/if}}
+            {{#if summary-list}}
+                <ul class="summary-list">
+                    {{#each summary-list}}
+                        <li>{{{.}}}</li>
+                    {{/each}}
+                </ul>
             {{/if}}
             {{#if highlights.length}}
                 <ul class="highlights">
                     {{#each highlights}}
-                        <li>{{.}}</li>
+                        <li>{{{.}}}</li>
                     {{/each}}
                 </ul>
             {{/if}}
