@@ -71,9 +71,17 @@ const build_pdf = (filePath, html) => {
         .catch(function(err){ if (err) console.log("Error: " + err); })
 };
 
-function build(filePath) {
-	const rawData = fs.readFileSync("resume.json");
-    const resume = JSON.parse(rawData);
+function build(filePath, callbackError, callbackSuccess) {
+    const rawData = fs.readFileSync("resume.json");
+    let resume = undefined;
+    try {
+        resume = JSON.parse(rawData);
+    } catch(e) {
+        console.log(e);
+        callbackError({message:e});
+        return;
+    }
+
     const html = render(resume);
     const dir = path.dirname(filePath);
     const basename = path.basename(filePath);
@@ -89,12 +97,16 @@ function build(filePath) {
             build_html(filePath, html);
             break;
         case "pdf":
-            build_pdf(filePath, html)
+            build_pdf(filePath, html);
             break;
         default:
-            console.log("Build type '" + type + "' not supported.")
+            const errMsg = "Build type '" + type + "' not supported.";
+            console.log(errMsg);
+            callbackError({message:errMsg});
             break;
     }
+
+    callbackSuccess();
 }
 
 module.exports = {

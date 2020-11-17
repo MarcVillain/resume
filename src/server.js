@@ -28,22 +28,27 @@ function serve() {
                 break;
         }
 
-        builder.build(filePath)
-
-        fs.readFile(filePath, function (error, content) {
-            if (error) {
-                if (error.code === "ENOENT") {
-                    response.end("404 Not Found");
-                } else {
-                    response.writeHead(500);
-                    response.end("Error " + error.code);
-                }
-            } else {
-                response.writeHead(200, {"Content-Type": contentType});
-                response.end(content, "utf-8");
+        builder.build(filePath,
+            (error) => {
+                response.writeHead(500);
+                response.end("Error : build failed\n" + error.message);
+            },
+            () => {
+                fs.readFile(filePath, function (error, content) {
+                    if (error) {
+                        if (error.code === "ENOENT") {
+                            response.end("404 Not Found");
+                        } else {
+                            response.writeHead(500);
+                            response.end("Error " + error.code);
+                        }
+                    } else {
+                        response.writeHead(200, {"Content-Type": contentType});
+                        response.end(content, "utf-8");
+                    }
+                });
             }
-        });
-
+        );
     }).listen(8000, "127.0.0.1");
 
     console.log("Node server running on http://127.0.0.1:8000");

@@ -10,7 +10,7 @@ const argv = require("yargs")
     .argv;
 
 if (argv._.includes("build")) {
-    builder.build(argv.filename)
+    builder.build(argv.filename, () => void 0, () => void 0);
 } else if (argv._.includes("serve")) {
-    server.serve()
+    server.serve();
 }
