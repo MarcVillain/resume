@@ -42,7 +42,8 @@ h1, h2, h3, h4, p, li, span, a {
 #resume {
 	margin: 0 auto;
 	max-width: 210mm;
-    max-height: 297mm;
+	max-height: 297mm;
+	overflow: hidden;
 }
 
 /*
@@ -193,7 +194,7 @@ h1, h2, h3, h4, p, li, span, a {
 
 .bloc .details {
 	color: var(--color-main);
-	margin: 5px 0;
+	margin-top: 5px;
 	font-size: 0.85em;
 	line-height: 1em;
 	font-style: italic;
@@ -217,6 +218,10 @@ h1, h2, h3, h4, p, li, span, a {
 	color: var(--color-contact);
 }
 
+.bloc .summary {
+	padding-top: 5px;
+}
+
 .bloc p {
 	font-size: 0.9em;
 }
@@ -224,6 +229,7 @@ h1, h2, h3, h4, p, li, span, a {
 .bloc ul.highlights {
 	font-size: 0.9em;
 	list-style: none;
+	padding-top: 5px;
 	padding-left: 1em;
 }
 
@@ -239,11 +245,11 @@ h1, h2, h3, h4, p, li, span, a {
 .bloc ul.summary-list {
 	list-style: none;
 	font-size: 0.9em;
-	padding-top: 5px;
 }
 
 .bloc ul.summary-list li {
 	display: inline-block;
+	padding-top: 5px;
 }
 
 /*
@@ -275,7 +281,8 @@ h1, h2, h3, h4, p, li, span, a {
 @media only screen and (max-width: 600px) {
 	#resume {
 		max-width: none;
-	    max-height: none;
+		max-height: none;
+		overflow: visible;
 	}
 
 	#resume-columns {
