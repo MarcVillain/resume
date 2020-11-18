@@ -2,7 +2,7 @@
     {{#each info}}
         <div class="bloc_info">
             {{#if position}}
-                <h3>{{position}}</h3>
+                <h3>{{{position}}}</h3>
             {{/if}}
             {{#if company}}
                 {{#if website}}
@@ -15,6 +15,7 @@
                     {{company}}
                 {{/if}}
             {{/if}}
+            <div class="clearfix"></div>
             {{#ifOr date location}}
                 <div class="details">
                     {{#if date}}

@@ -1,9 +1,22 @@
-{{#if resume.blocs.length}}
-	{{#each resume.blocs}}
-		<div class="bloc">
-			<h2>{{title}}</h2>
-            {{> bloc_info}}
-            {{> bloc_tags}}
-		</div>
-	{{/each}}
+{{#if resume.blocs.left.length}}
+	<div class="bloc_left">
+		{{#each resume.blocs.left}}
+			<div class="bloc">
+				<h2>{{title}}</h2>
+	            {{> bloc_info}}
+	            {{> bloc_tags}}
+			</div>
+		{{/each}}
+	</div>
+{{/if}}
+{{#if resume.blocs.right.length}}
+	<div class="bloc_right">
+		{{#each resume.blocs.right}}
+			<div class="bloc">
+				<h2>{{title}}</h2>
+	            {{> bloc_info}}
+	            {{> bloc_tags}}
+			</div>
+		{{/each}}
+	</div>
 {{/if}}

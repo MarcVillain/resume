@@ -12,14 +12,14 @@
 						{{#if apply.url}}
 							<a href="{{apply.url}}">
 						{{/if}}
-							{{apply.position}}
+							{{{apply.position}}}
 						{{#if apply.url}}
 							</a>
 						{{/if}}
 					</span>
 				{{/if}}
 				{{#if summary}}
-					<p>{{summary}}</p>
+					<p>{{{summary}}}</p>
 				{{/if}}
 			</div>
 			{{#if picture}}
@@ -28,10 +28,20 @@
 				</div>
 			{{/if}}
 		</div>
+		{{#if qualities}}
+			<div class="qualities">
+				<h4>{{qualities.title}}</h4>
+				<ul>
+					{{#each qualities.values}}
+						<li>{{{.}}}</li>
+					{{/each}}
+				</ul>
+			</div>
+		{{/if}}
 		<div class="contact">
 			{{#if website}}
 				<div class="contact-item">
-					<a href="https://{{website}}">
+					<a href="{{website}}">
 						<i class="fas fa-at"></i>{{website}}
 					</a>
 				</div>
