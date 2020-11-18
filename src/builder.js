@@ -100,7 +100,7 @@ function build(filePath, callbackError, callbackSuccess) {
             build_pdf(filePath, html);
             break;
         default:
-            const errMsg = "Build type '" + type + "' not supported.";
+            const errMsg = "warning: unable to build '" + filePath + "'";
             console.log(errMsg);
             callbackError({message:errMsg});
             break;
