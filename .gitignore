@@ -1,8 +1,8 @@
 # Custom
 .idea/
 resume.html
-resume.pdf
-resume.json
+resume*.pdf
+resume*.json
 index.html
 
 node_modules

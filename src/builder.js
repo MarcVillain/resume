@@ -59,10 +59,17 @@ const build_pdf = (filePath, html) => {
             `data:text/html;base64,${btoa(unescape(encodeURIComponent(html)))}`,
             { waitUntil: "networkidle0" },
         );
+        await page.setViewport({ width: 1920, height: 1080 });
         await page.pdf({
             path: filePath,
             format: "A4",
             printBackground: true,
+            margin: {
+              top: '0',
+              right: '0',
+              bottom: '0',
+              left: '0'
+            }
         });
 
         await browser.close();
