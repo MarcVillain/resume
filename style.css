@@ -12,6 +12,7 @@
   --color-contact: rgb(245, 245, 245);
   --color-contact-text: var(--color-black);
   --color-tag: rgb(240, 240, 240);
+  --color-tag-border: rgba(10, 132, 255, 0.4);
   --color-bloc-title: rgb(120, 130, 140)
 }
 
@@ -64,7 +65,7 @@ h1, h2, h3, h4, p, li, span, a {
 #basics .header {
     background: var(--color-header);
     color: var(--color-header-text);
-    padding: 20px 30px;
+    padding: 15px 30px;
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
@@ -126,7 +127,7 @@ h1, h2, h3, h4, p, li, span, a {
     background: var(--color-header);
     color: var(--color-header-text);
     margin-top: -5px;
-    padding: 0 30px 20px;
+    padding: 0 30px 13px;
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
@@ -143,10 +144,11 @@ h1, h2, h3, h4, p, li, span, a {
     background: var(--color-white);
     color: var(--color-main);
     list-style: none;
-    padding: 1px 6px;
+    font-size: 0.82rem;
+    padding: 2px 11px;
     display: inline-block;
-    border: 1px solid var(--color-main);
-    border-radius: 5px;
+    border: 1px solid var(--color-tag-border);
+    border-radius: 6px;
     transition: 0.2s ease;
 }
 
@@ -159,7 +161,7 @@ h1, h2, h3, h4, p, li, span, a {
 #basics .contact {
     background: var(--color-contact);
     color: var(--color-contact-text);
-    padding: 12px 30px;
+    padding: 9px 30px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -195,7 +197,7 @@ h1, h2, h3, h4, p, li, span, a {
  */
 
 #resume-columns {
-    margin: 15px 15px;
+    margin: 9px 15px;
     display: flex;
     justify-content: center;
     align-items: stretch;
@@ -269,7 +271,7 @@ h1, h2, h3, h4, p, li, span, a {
 }
 
 .bloc .details > * {
-    margin-top: 6px;
+    margin-top: 4px;
 }
 
 .bloc .details a {
@@ -286,7 +288,7 @@ h1, h2, h3, h4, p, li, span, a {
 }
 
 .bloc p {
-    font-size: 0.9em;
+    font-size: 0.88em;
     text-align: justify;
 }
 
@@ -295,9 +297,9 @@ h1, h2, h3, h4, p, li, span, a {
 }
 
 .bloc ul.highlights {
-    font-size: 0.9em;
+    font-size: 0.88em;
     list-style: none;
-    padding-top: 5px;
+    padding-top: 4px;
     padding-left: 1em;
     text-align: justify;
 }
@@ -312,7 +314,7 @@ h1, h2, h3, h4, p, li, span, a {
 
 .bloc ul.summary-list {
     list-style: none;
-    font-size: 0.9em;
+    font-size: 0.88em;
 }
 
 .bloc ul.summary-list li {
@@ -325,7 +327,7 @@ h1, h2, h3, h4, p, li, span, a {
  * Bloc
  */
 .bloc_info, .bloc_tags {
-    padding-bottom: 13px;
+    padding-bottom: 9px;
 }
 
 .bloc_tags {
@@ -335,11 +337,14 @@ h1, h2, h3, h4, p, li, span, a {
 .bloc_tag {
     color: var(--color-main);
     background: var(--color-white);
-    padding: 3px 6px;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    padding: 1px 8px;
     display: inline-block;
     margin-top: 5px;
-    border: 1px solid var(--color-main);
-    border-radius: 5px;
+    margin-right: 3px;
+    border: 1px solid var(--color-tag-border);
+    border-radius: 6px;
     transition: 0.2s ease;
 }
 
