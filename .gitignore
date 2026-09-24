@@ -3,6 +3,7 @@
 resume.html
 resume*.pdf
 resume*.json
+*.bak
 index.html
 
 node_modules

@@ -23,32 +23,68 @@ Or if you're on OSX and got [Homebrew](http://brew.sh/) installed:
 brew install node
 ```
 
-### Install and build locally
+### Install locally
 
 ```bash
-sudo npm install .
+npm install
 node . --help
 ```
 
-### Install and build globally
+### Install globally
 
 ```bash
-sudo npm install -g .
+npm install -g .
 resume --help
 ```
+
+### Your resume data
+
+Commands read your resume from a JSON file (`resume.json` in the current
+directory by default, override with `--input`/`-i`). Copy
+[`examples/resume.json`](examples/resume.json) to get started, following the
+[jsonresume](https://jsonresume.org/schema/) schema.
 
 ## How to use
 
 ### Live reload
 
+Serves the rendered resume on `http://127.0.0.1:8000`, re-rendering it from
+the input file on every request so edits show up on refresh.
+
 ```bash
 node . serve
 ```
 
+Options:
+
+| Option           | Default        | Description                                 |
+|------------------|----------------|----------------------------------------------|
+| `--input`, `-i`  | `resume.json`  | Path to the resume JSON file                |
+| `--port`, `-p`   | `8000`         | Port to serve the resume on                 |
+| `--open`         | `true`         | Open the resume in a browser automatically  |
+
 ### Build
+
+Renders the resume to a standalone HTML or PDF file, determined by the output
+file's extension.
 
 ```bash
 node . build resume.pdf
+node . build resume.html --input resume-fr.json
+```
+
+Options:
+
+| Option          | Default       | Description                                              |
+|-----------------|---------------|------------------------------------------------------------|
+| `output`        | `resume.pdf`  | Output file path, `.html` or `.pdf`                       |
+| `--input`, `-i` | `resume.json` | Path to the resume JSON file                              |
+
+PDF generation uses [Puppeteer](https://pptr.dev/). If it can't launch Chromium
+in your environment (e.g. in a container or CI without a sandbox), set:
+
+```bash
+RESUME_PUPPETEER_NO_SANDBOX=1 node . build resume.pdf
 ```
 
 ## License

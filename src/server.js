@@ -1,55 +1,69 @@
 const fs = require("fs");
 const http = require("http");
 const path = require("path");
-const builder = require("./builder")
+const builder = require("./builder");
 
-function serve() {
-    http.createServer(function (request, response) {
-        console.log("Starting server...");
+const ROOT_DIR = path.join(__dirname, "..");
 
-        let filePath = "." + request.url;
-        if (filePath === "./")
-            filePath = __dirname + "/../index.html";
+const CONTENT_TYPES = {
+    ".html": "text/html",
+    ".js": "text/javascript",
+    ".css": "text/css",
+    ".png": "image/png",
+    ".jpg": "image/jpg",
+};
 
-        const extname = path.extname(filePath);
-        let contentType = "text/html";
-        switch (extname) {
-            case ".js":
-                contentType = "text/javascript";
-                break;
-            case ".css":
-                contentType = "text/css";
-                break;
-            case ".png":
-                contentType = "image/png";
-                break;
-            case ".jpg":
-                contentType = "image/jpg";
-                break;
+function serveIndex(input, response) {
+    try {
+        const html = builder.render(input);
+        response.writeHead(200, { "Content-Type": "text/html" });
+        response.end(html, "utf-8");
+    } catch (err) {
+        response.writeHead(500, { "Content-Type": "text/plain" });
+        response.end(`Error: ${err.message}`);
+    }
+}
+
+function serveStaticFile(requestUrl, response) {
+    const filePath = path.join(ROOT_DIR, requestUrl);
+    const contentType = CONTENT_TYPES[path.extname(filePath)] || "application/octet-stream";
+
+    fs.readFile(filePath, (err, content) => {
+        if (err) {
+            response.writeHead(404, { "Content-Type": "text/plain" });
+            response.end("Not found");
+            return;
         }
+        response.writeHead(200, { "Content-Type": contentType });
+        response.end(content, "utf-8");
+    });
+}
 
-        builder.build(filePath,
-            (error) => {
-                response.writeHead(500);
-                response.end("Error : build failed\n" + error.message);
-            },
-            () => {
-                fs.readFile(filePath, function (error, content) {
-                    if (!error) {
-                        response.writeHead(200, {"Content-Type": contentType});
-                        response.end(content, "utf-8");
-                    }
-                });
-            }
-        );
-    }).listen(8000, "127.0.0.1");
+/**
+ * Serve the resume at `http://host:port`, re-rendering it from `input` on every
+ * request so edits to the resume data or templates show up on refresh.
+ */
+function serve({ input = "resume.json", port = 8000, host = "127.0.0.1", open = true } = {}) {
+    const server = http.createServer((request, response) => {
+        if (request.url === "/") {
+            serveIndex(input, response);
+            return;
+        }
+        serveStaticFile(request.url, response);
+    });
 
-    console.log("Node server running on http://127.0.0.1:8000");
+    server.listen(port, host, () => {
+        const url = `http://${host}:${port}`;
+        console.log(`Resume server running at ${url}`);
 
-    const opn = require("opn");
-    opn("http://127.0.0.1:8000");
+        if (open) {
+            require("opn")(url);
+        }
+    });
+
+    return server;
 }
 
 module.exports = {
-    serve: serve,
-}
+    serve,
+};
